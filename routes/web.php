@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/yard', function () {
     return view('vehicles');
 });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});

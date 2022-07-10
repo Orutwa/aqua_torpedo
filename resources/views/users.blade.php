@@ -27,21 +27,22 @@
         <label for="country">Country</label>
         <input type="text" id="country" name="country" placeholder="residence country" required/>
 
-    <div class="gender">
-      <input type="radio" name="inlineRadioOptions" id="maleGender"
-      <label for="maleGender">Male</label>
+      <div class="gender">
+        <input type="radio" name="inlineRadioOptions" id="maleGender"
+        <label for="maleGender">Male</label>
 
-      <input type="radio" name="inlineRadioOptions" id="femaleGender"
-      <label for="femaleGender">Female</label>
+        <input type="radio" name="inlineRadioOptions" id="femaleGender"
+        <label for="femaleGender">Female</label>
 
-      <input type="radio" name="inlineRadioOptions" id="otherGender"
-      <label for="otherGender">Other</label>
-    </div>
+        <input type="radio" name="inlineRadioOptions" id="otherGender"
+        <label for="otherGender">Other</label>
+      </div>
 
-        <div class = "button-set">
-          <input type="submit" name="submit" id="button" value="Submit">
-          <input type="reset" id="button" value="Clear">
-        </div>
+      <div class = "button-set">
+        <input type="submit" name="submit" id="button" value="Submit">
+        <input type="reset" id="button" value="Clear">
+      </div>
+
     </div>
   </form>
 {{View::make('footer')}}

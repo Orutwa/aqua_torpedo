@@ -1,4 +1,4 @@
-{{View::make('header',['title'=>'index'])}}
+{{View::make('header',['title'=>'Index'])}}
 	<div class ="m-1 row" style="min-height:500px;">
 		<div class ="col-lg-8 card">
 				<img src="{{asset('storage/img/captain.png')}}" class="mt-4" >
