@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/index', function () {
     return view('index');
 });
-Route::get('/header', function () {
-    return view('header');
+Route::get('/yard', function () {
+    return view('vehicles');
 });
