@@ -47,16 +47,16 @@
         <h3 class="text-dark">Let's get in touch</h3>
 
         <div class="input-group mb-3">
-            <span class="input-group-text">Full name</span>
-            <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name">
+            <span class="input-group-text">FULL NAME</span>
+            <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" required>
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text">Email</span>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+            <span class="input-group-text">EMAIL</span>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">PHONE NUMBER</span>
-            <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Phone Number">
+            <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Phone Number" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">SUBJECT</span>
