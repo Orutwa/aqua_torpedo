@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\mainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +22,7 @@ Route::get('/yard', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+Route::get('/reg_user', function () {
+    return view('users');
+});
+Route::post('/register_user', [mainController::class, 'registration']);

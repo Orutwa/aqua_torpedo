@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type='button' class="btn btn-outline-secondary m-2 has-validation">Clear</button>
+          <button type='reset' class="btn btn-outline-secondary m-2 has-validation">Clear</button>
           <button type='submit' class="btn btn-outline-success m-2">Register</button>
         </div>
       </div>
