@@ -3,7 +3,7 @@
 		<div class ="col-lg-8 card">
 				<img src="{{asset('storage/img/captain.png')}}" class="mt-4" >
 				<h2 class ="position-absolute start-50  translate-middle badge bg-light text-dark"  style="font-size:1.4rem;">
-					Vehicle Management Information System
+					Vehicle Information Management System
 				</h2>
 		</div>
 		<div class = "col-lg-4 card">
