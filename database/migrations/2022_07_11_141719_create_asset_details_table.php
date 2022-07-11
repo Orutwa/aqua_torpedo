@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('asset_details', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('model');
-            $table->string('brand');
+            $table->string('type_id');
+            $table->string('brand_id');
             $table->string('chassis_number')->unique();
             $table->string('engine_number')->unique();
             $table->string('license')->unique();
@@ -25,6 +24,7 @@ return new class extends Migration
             $table->string('condition');
             $table->string('mileage');
             $table->string('associated_user');
+            $table->string('status');
             $table->timestamps();
         });
     }

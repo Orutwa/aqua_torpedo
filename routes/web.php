@@ -25,4 +25,7 @@ Route::get('/dashboard', function () {
 Route::get('/reg_user', function () {
     return view('users');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
 Route::post('/register_user', [mainController::class, 'registration']);
