@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('nin_number')->unique();
             $table->string('tin_number')->unique();
             $table->string('phone');
-            $table->email('email')->unique();
-            $table->email('address');
-            $table->email('country');
-            $table->email('gender');
+            $table->string('email')->unique();
+            $table->string('address');
+            $table->string('country');
+            $table->string('gender');
             $table->string('password')->nullable();
             $table->string('company');
             $table->string('role');

@@ -519,13 +519,10 @@ class ComposerStaticInitd4bf574cd5baf484829b96eede24fadf
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
-<<<<<<< HEAD
-        'App\\Models\\test' => __DIR__ . '/../..' . '/app/Models/test.php',
-=======
         'App\\Models\\asset_details' => __DIR__ . '/../..' . '/app/Models/asset_details.php',
         'App\\Models\\customers' => __DIR__ . '/../..' . '/app/Models/customers.php',
         'App\\Models\\vehicle_models' => __DIR__ . '/../..' . '/app/Models/vehicle_models.php',
->>>>>>> 892812c04cffe9298d593a293535136b60ef5aba
+
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
