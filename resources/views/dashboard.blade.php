@@ -1,5 +1,5 @@
 {{View::make('header',['title'=>'Dashboard'])}}
-<div class="container" style="mi-height:450px">
+<div class="container" style="min-height:600px">
     <link rel="stylesheet" href="{{asset('storage/css/pie.css')}}">        
     <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
         <h2>Summary</h2>

@@ -1,5 +1,5 @@
 <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 text-light  border-top bg-dark">
-    <div class="col-md-4 d-flex align-items-center">
+    <div class="d-flex align-items-center">
     	<span class="text-light">&copy;{{date('Y')}} All rights reserved 
 			Design by Jeytech Engineering Solutions
 		</span>
