@@ -10,15 +10,16 @@
 				<div class="d-flex justify-content-center m-3">
 					<i class="fa-solid fa-user fa-fw fa-8x"></i>
 				</div>
-				<form class="container">
+				<form class="container" method="POST" action="login">
+					@csrf
 					<div class="input-group mb-3">
-						<input type="text" id="username" class="form-control" placeholder="username" >
+						<input type="text"  name="email" class="form-control" placeholder="Email" >
 						<span class="position-absolute top-0 start-50  translate-middle badge  bg-success text-light">
-							Username
+							Email
 						</span>
 					</div>
 					<div class="input-group mb-3">
-						<input type="password" id="password" class="form-control" placeholder="password">
+						<input type="password" id="password" name= "password" class="form-control" placeholder="password">
 						<span class="position-absolute top-0 start-50  translate-middle badge  bg-success text-light">
 							Password
 						</span>

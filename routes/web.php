@@ -29,3 +29,4 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::post('/register_user', [mainController::class, 'registration']);
+Route::post('/login', [mainController::class, 'login']);

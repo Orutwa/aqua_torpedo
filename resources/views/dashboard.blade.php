@@ -4,18 +4,22 @@
     <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
         <h2>Summary</h2>
         <?php $vehicles=[6,8,5,7,2];?>
-        <div class="row card d-flex justify-content-center">
-            <div class="card col-3">15</div>
-            @foreach($vehicles as $vehicle)
-                <div class="col-sm-1">
-                    <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="card col-3 m-1">
+                <h3 class="card-title">All Assets</h3>
+                <p>15</p>
+            </div>
+            <div class="col-9 row d-flex justify-content-center">
+                @foreach($vehicles as $vehicle)
+                    <div class="card col-2 m-1">
                         <div class="card-body">
-                            <h3 class="card-title">Tractor</h3> 
+                            <h5 class="card-title">Tractor</h5> 
                             <p>{{$vehicle}}</p>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            
         </div>
         <div class="accordion-body" >
             <div class="row d-flex justify-content-center" >
