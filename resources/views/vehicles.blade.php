@@ -1,88 +1,56 @@
 {{View::make('header',['title'=>'Vehicles'])}}
   <div class="container row d-flex justify-content-center m-2" style="min-height:500px; text-transform:capitalize;">
+    @if($message)
+      <h4 class="alert alert-success fade">{{$message}}</h4>
+    @endif
     <form action="/reg_vehicle" novalidate method="post" class="col-lg-6 card needs-validation">
       <div>
         <h3>Vehicle Registration Details</h3>
-        <div class="input-group">
-          <input type="text" class="form-control mb-3 has-validation" name="vehicle-type" placeholder="vehicle type" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-              Vehicle type
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+
+        <div class='form-floating mb-2'>
+          <select class="form-control mb-3 has-validation" name="type_id" required>
+          <option value="" class="text-secondary" selected disabled>Select Vehicle Type</option>
+          @foreach($brands as $brand)
+          <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+          @endforeach
+          </select>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
-        <div class="input-group">
-          <input type="text" id="vehicle-brand" class='form-control mb-3 has-validation' name="vehicle-brand" placeholder="vehicle brand" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-            Vehicle Brand
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+
+        <div class='form-floating mb-2'>
+          <select class="form-control mb-3 has-validation" name="brand_id"  required>
+          <option value="" selected disabled>Select Vehicle Brand</option>
+          @foreach($types as $type)
+          <option value="{{$type->id}}">{{$type->name}}</option>
+          @endforeach
+          </select>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
-        <div class="input-group">
-        <input type="text" id="vehicle-model" class='form-control mb-3' name="vehicle-model" placeholder="vehicle model" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-          Vehicle Model
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+        
+        <div class='form-floating mb-2'>
+          <input type="text" class="form-control mb-3 has-validation" name="chassis_number" required/>
+          <label for="">Chassis Number</label>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
-        <div class="input-group">
-        <input type="text" id="chassis-number" class='form-control mb-3 has-validation' name="chassis-number" placeholder="chassis number" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-            Chassis Number
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+        <div class='form-floating mb-2'>
+          <input type="text" class="form-control mb-3 has-validation" name="engine_number" required/>
+          <label for="m-name">Engine Number</label>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
-        <div class="input-group">
-          <input type="text" id="engine-number" class='form-control mb-3 has-validation' name="engine-number" placeholder="engine number" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-          Engine Number
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+        <div class='form-floating mb-2'>
+          <input type="text" class="form-control mb-3 has-validation" name="license" required/>
+          <label for="m-name">Registration</label>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
-        <div class="input-group">
-          <input type="text" id="license" class='form-control mb-3 has-validation' name="license" placeholder="registration/license" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-          Registration
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+        <div class='form-floating mb-2'>
+          <input type="text" class="form-control mb-3 has-validation" name="color" placeholder="" required/>
+          <label for="m-name">Color</label>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
-        <div class="input-group">
-          <input type="text" id="color" class='form-control mb-3 has-validation' name="color" placeholder="color" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-          Color
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
-        </div>
-        <div class="input-group">
-          <input type="text" id="condition" class='form-control mb-3 has-validation' name="condition" placeholder="condition" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-          Condition
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
-        </div>
-        <div class="input-group">
-          <input type="text" id="mileage" class='form-control mb-3 has-validation' name="mileage" placeholder="mileage" required/>
-          <span class="position-absolute top-0 start-50  translate-middle badge  bg-light text-dark">
-          Mileage
-          </span>
-          <div class="invalid-feedback">
-              This field is required.
-          </div>
+        <div class='form-floating mb-2'>
+          <input type="number" class="form-control mb-3 has-validation" name="mileage" placeholder="" required/>
+          <label for="m-name">Mileage</label>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
         <div class="modal-footer">
           <button type='reset' class="btn btn-outline-secondary m-2 has-validation">Clear</button>

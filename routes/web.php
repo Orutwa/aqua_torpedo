@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/yard', function () {
-    return view('vehicles');
-});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
@@ -30,3 +28,5 @@ Route::get('/contact', function () {
 });
 Route::post('/register_user', [mainController::class, 'registration']);
 Route::post('/login', [mainController::class, 'login']);
+Route::get('/yard',[mainController::class, 'vehicle'] );
+Route::post('/reg_vehicle',[mainController::class, 'reg_vehicle'] );
