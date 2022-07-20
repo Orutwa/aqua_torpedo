@@ -1,11 +1,17 @@
 {{View::make('header',['title'=>'Index'])}}
 	<div class ="m-1 row" style="min-height:500px;">
+		@if(session()->has('user'))
+		<div class ="col-lg-12 card">
+		@else
 		<div class ="col-lg-8 card">
+		@endif
 				<img src="{{asset('storage/img/captain.png')}}" class="mt-4" >
 				<h2 class ="position-absolute start-50  translate-middle badge bg-light text-dark"  style="font-size:1.4rem;">
 					Vehicle Information Management System
 				</h2>
 		</div>
+		@if(session()->has('user'))
+		@else
 		<div class = "col-lg-4 card">
 				<div class="d-flex justify-content-center m-3">
 					<i class="fa-solid fa-user fa-fw fa-8x"></i>
@@ -66,5 +72,6 @@
 					</div>
 				</form>
 		</div>
+		@endif
 	</div>
 {{View::make('footer')}}

@@ -10,8 +10,8 @@
         <div class='form-floating mb-2'>
           <select class="form-control mb-3 has-validation" name="type_id" required>
           <option value="" class="text-secondary" selected disabled>Select Vehicle Type</option>
-          @foreach($brands as $brand)
-          <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+          @foreach($types as $type)
+          <option value="{{$type->id}}">{{$type->name}}</option>
           @endforeach
           </select>
           <div class="invalid-feedback">This field is required.</div>
@@ -20,8 +20,8 @@
         <div class='form-floating mb-2'>
           <select class="form-control mb-3 has-validation" name="brand_id"  required>
           <option value="" selected disabled>Select Vehicle Brand</option>
-          @foreach($types as $type)
-          <option value="{{$type->id}}">{{$type->name}}</option>
+          @foreach($brands as $brand)
+          <option value="{{$brand->id}}">{{$brand->name}}</option>
           @endforeach
           </select>
           <div class="invalid-feedback">This field is required.</div>

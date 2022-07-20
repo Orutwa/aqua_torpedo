@@ -31,3 +31,6 @@ Route::post('/login', [mainController::class, 'login']);
 Route::get('/yard',[mainController::class, 'vehicle'] );
 Route::get('/dashboard',[mainController::class, 'dashboard'] );
 Route::post('/reg_vehicle',[mainController::class, 'reg_vehicle'] );
+Route::post('/addBrand',[mainController::class, 'brand'] );
+Route::post('/addType',[mainController::class, 'type'] );
+Route::post('/addModel',[mainController::class, 'model'] );

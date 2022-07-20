@@ -1,18 +1,18 @@
 {{View::make('header',['title'=>'Dashboard'])}}
-    <div class="container-fluid" style="min-height:600px">
+    <div class="container-fluid" style="min-height:600px" id="accordionFlushExample">
         <link rel="stylesheet" href="{{asset('storage/css/pie.css')}}"> 
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link active" aria-current="page" href=""data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true" aria-controls="dashboard">
                             <i class="fa-solid fa-gauge"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" href="#assets" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <i class="fa-brands fa-buffer"></i>
                                 Assets
                             </a>
@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="" data-bs-toggle="collapse" data-bs-target="#clients" aria-expanded="true" aria-controls="clients">
                                 <i class="fa fa-users"></i>
                                 Clients
                             </a>
@@ -85,13 +85,13 @@
                     <h1 class="h2">Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-plus"></i> Type</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-plus"></i> Model</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-plus"></i> Brand</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#type"><i class="fa fa-plus"></i> Type</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#model"><i class="fa fa-plus" ></i> Model</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#brand"><i class="fa fa-plus"></i> Brand</button>
                         </div>
                     </div>
                 </div>
-                <div id="dashboard" class="accordion-collapse collapse " aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="clients" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
                     <h2>Summary</h2>
                     <?php $vehicles=[6,8,5,7,2];?>
                     <div class="row d-flex justify-content-center">
@@ -171,7 +171,7 @@
                     </div>
 
                 </div>
-                <div id="clients" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                <div id="clients" class="accordion-collapse collapse " aria-labelledby="clients" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
                     
                     <div class="accordion-body" >
                         <div class="row d-flex justify-content-center" >
@@ -201,11 +201,112 @@
                     </div>
                     
                 </div>
+                <div id="clients" class="accordion-collapse collapse " aria-labelledby="clients" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                    
+                    <div class="accordion-body" >
+                        <div class="row d-flex justify-content-center" >
+                            <table class="table">
+                                <thead>
+                                    <td>#</td>
+                                    <td>Brand</td>
+                                    <td>Total</td>
+                                </thead>
+                                <tbody>
+                                    @foreach($brands as $key=>$brand)
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$brand->brand_name}}</td>
+                                        <td></td>
+                                        <td><button class="btn btn-outline-info">More...</button></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
                 
             </main>
         </div>
     </div>
-
     <!--Modals-->
-    
+<div class="modal fade" id="model" tabindex="-1" aria-labelledby="model" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="model">Model</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="addModel" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class='form-floating mb-2'>
+                        <input type="text" id="m-name" class="form-control" name="model_name" placeholder=" " />
+                        <label for="m-name">Model Name</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="type" tabindex="-1" aria-labelledby="type" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="type">Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="addType" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class='form-floating mb-2'>
+                        <input type="text" id="m-name" class="form-control" name="type_name" placeholder=" " />
+                        <label for="m-name">Vehicle Type</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="brand" tabindex="-1" aria-labelledby="brand" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="brand">Brand</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="addBrand" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class='form-floating mb-2'>
+                        <select name="model_id" class='form-control'id="">
+                            <option value="" class='form-control'></option>
+                            @foreach($models as $model)
+                                <option value="{{$model->id}}" class='form-control'>{{$model->model_name}}</option>
+                            @endforeach
+                        </select>
+                        <label for="m-name">Model Name</label>
+                    </div>
+                    <div class='form-floating mb-2'>
+                        <input type="text" id="m-name" class="form-control" name="brand_name" placeholder=" " />
+                        <label for="m-name">Brand Name</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {{View::make('footer')}}

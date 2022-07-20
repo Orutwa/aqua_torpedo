@@ -73,15 +73,15 @@ class mainController extends Controller
         return redirect('dashboard');
     }
     function vehicle(){
-        $types=vehicle_type::get('id', 'name');
-        $brands=vehicle_brand::get('id','brand_name');
-        return view('vehicles', ['types'=>$types, 'brands'=>$brands, 'message'=>'']);
+        $types=vehicle_type::all();
+        $models=vehicle_models::all();
+        return view('vehicles', ['types'=>$types, 'models'=>$models, 'message'=>'']);
     }
     function reg_vehicle(Request $req){
         $asset=new asset_details;
         $asset->type_id=$req->type_id;
         $asset->brand_id=$req->brand_id;
-        $asset->chassis_nuber=$req->chassis_number;
+        $asset->chassis_number=$req->chassis_number;
         $asset->engine_number=$req->engine_number;
         $asset->license=$req->license;
         $asset->color=$req->color;
@@ -94,8 +94,7 @@ class mainController extends Controller
     }
     function dashboard(){
         $users= User::all();
-        //$assets= asset_details::join('vehicle_model','vehicle_brand','asset_details')->get('vehicle_model.model_name','asset_details.id as asset_id');
-        //return $users;
-        return view('dashboard', ['clients'=>$users]);
+        $models=vehicle_models::all();
+        return view('dashboard', ['clients'=>$users,'models'=>$models]);
     }
 }
