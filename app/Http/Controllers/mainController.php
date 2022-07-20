@@ -95,6 +95,7 @@ class mainController extends Controller
     function dashboard(){
         $users= User::all();
         $models=vehicle_models::all();
-        return view('dashboard', ['clients'=>$users,'models'=>$models]);
+        $brands=vehicle_brand::all();
+        return view('dashboard', ['clients'=>$users,'models'=>$models,'brands'=>$brands]);
     }
 }
