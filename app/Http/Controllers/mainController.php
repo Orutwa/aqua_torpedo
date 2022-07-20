@@ -38,10 +38,13 @@ class mainController extends Controller
         return redirect('/');
     }
     function login(Request $req){
+        $errors=array();
         $username=$req->email;
         $user=User::where(['email'=>$username])->first();
+
         if(!$user || !Hash::check($req->password,$user->password)){
-            return redirect(back());
+            array_push($errors, ' Username or password is incorrect');
+            return view("index",['errors'=>$errors]);
         }
         else{
             return redirect('dashboard');

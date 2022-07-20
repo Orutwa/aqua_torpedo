@@ -10,6 +10,9 @@
 				<div class="d-flex justify-content-center m-3">
 					<i class="fa-solid fa-user fa-fw fa-8x"></i>
 				</div>
+				@foreach($errors as $error)
+				<div class="alert alert-danger">{{$error}}</div>
+				@endforeach
 				<form class="container" method="POST" action="login">
 					@csrf
 					<div class="input-group mb-3">
@@ -24,7 +27,43 @@
 							Password
 						</span>
 					</div>
-					<button type="submit" class="btn btn-success">Login</button>
+
+					  <!-- 2 column grid layout for inline styling -->
+					<div class="row mb-4">
+						<div class="col d-flex justify-content-center">
+						<!-- Checkbox -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+							<label class="form-check-label" for="formcheck"> Remember me </label>
+						</div>
+						</div>
+
+						<div class="col">
+						<!-- Simple link -->
+						<a href="#!" style="text-decoration: none;">Forgot password?</a>
+						</div>
+					</div>
+					<div >
+						<button type="submit" class="btn btn-success container" width:20px>LOG IN</button>
+					</div>
+					<hr>
+					<div class="text-center mt-2">
+						<p>Not a member? <a href="#!" style="text-decoration: none;">Register</a></p>
+						<p>Follow us on</p>
+
+						<button type="button" class="btn btn-link btn-floating mx-1">
+						<i class="fab fa-facebook-f"></i>
+						</button>
+
+						<button type="button" class="btn btn-link btn-floating mx-1">
+						<i class="fab fa-google"></i>
+						</button>
+
+						<button type="button" class="btn btn-link btn-floating mx-1">
+						<i class="fab fa-twitter"></i>
+						</button>
+
+					</div>
 				</form>
 		</div>
 	</div>
