@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
-
+Route::get('/logout', function () {
+    session()->forget('user');
+    return view('index');
+});
 Route::get('/reg_user', function () {
     return view('users');
 });

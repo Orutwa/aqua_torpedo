@@ -36,10 +36,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @if(session()->has('user'))
                             <li><a class="dropdown-item" href="/dashboard"><button class="btn btn-outline-warning container"> Dashboard </button></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="logout"><button class="btn btn-outline-warning container"> Logout </button></a></li>
+                            @else
                             <li><a class="dropdown-item" href="/reg_user"><button class="btn btn-outline-warning container"> Signup </button></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href=""><button class="btn btn-outline-warning container"> Login </button></a></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>
