@@ -16,7 +16,7 @@
     <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <title>{{$title}}</title>
 </head>
-<body style="font-family:Georgia, 'Times New Roman', Times, serif;">
+<body style="">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Aqua Torpedo</a>

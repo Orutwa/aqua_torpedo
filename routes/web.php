@@ -26,6 +26,9 @@ Route::get('/reg_user', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/landing', function () {
+    return view('landing');
+});
 Route::post('/register_user', [mainController::class, 'registration']);
 Route::post('/login', [mainController::class, 'login']);
 Route::get('/yard',[mainController::class, 'vehicle'] );
