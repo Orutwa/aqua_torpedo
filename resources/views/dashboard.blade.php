@@ -79,19 +79,19 @@
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <div class="collapsed navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars" ></i>
+                    </div>
                     <h1 class="h2">Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-plus"></i> Type</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-plus"></i> Model</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-plus"></i> Brand</button>
                         </div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
                     </div>
                 </div>
-                <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                <div id="dashboard" class="accordion-collapse collapse " aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
                     <h2>Summary</h2>
                     <?php $vehicles=[6,8,5,7,2];?>
                     <div class="row d-flex justify-content-center">
@@ -169,9 +169,43 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div id="clients" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                    
+                    <div class="accordion-body" >
+                        <div class="row d-flex justify-content-center" >
+                            <table class="table">
+                                <thead>
+                                    <td>#</td>
+                                    <td>First Name</td>
+                                    <td>Middle Name</td>
+                                    <td>Last Name</td>
+                                    <td>Contact</td>
+                                    <td>Action</td>
+                                </thead>
+                                <tbody>
+                                    @foreach($clients as $key=>$client)
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$client->first_name}}</td>
+                                        <td>{{$client->middle_name}} </td>
+                                        <td>{{$client->last_name}} </td>
+                                        <td>{{$client->phone}}</td>
+                                        <td><button class="btn btn-outline-info">More...</button></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     
                 </div>
+                
             </main>
         </div>
     </div>
+
+    <!--Modals-->
+    
 {{View::make('footer')}}

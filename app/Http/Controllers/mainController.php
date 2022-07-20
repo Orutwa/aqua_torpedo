@@ -47,6 +47,26 @@ class mainController extends Controller
             return redirect('dashboard');
         }
     }
+    function model(Request $req){
+        $model=new vehicle_models;
+        $model->model_name=$req->model_name;
+        $model->save();
+        return redirect('dashboard');
+        
+    }
+    function brand(Request $req){
+        $brand=new vehicle_brand;
+        $brand->brand_name=$req->brand_name;
+        $brand->model_id=$req->model_id;
+        $brand->save();
+        return redirect('dashboard');
+    }
+    function type(Request $req){
+        $type=new vehicle_type;
+        $type->name=$req->type_name;
+        $type->save();
+        return redirect('dashboard');
+    }
     function vehicle(){
         $types=vehicle_type::get('id', 'name');
         $brands=vehicle_brand::get('id','brand_name');
@@ -66,5 +86,11 @@ class mainController extends Controller
         $asset->status='Hold';
         $asset->save();
         return redirect('/yard',['message'=>'Vehicle Registration successiful']);
+    }
+    function dashboard(){
+        $users= User::all();
+        //$assets= asset_details::join('vehicle_model','vehicle_brand','asset_details')->get('vehicle_model.model_name','asset_details.id as asset_id');
+        //return $users;
+        return view('dashboard', ['clients'=>$users]);
     }
 }

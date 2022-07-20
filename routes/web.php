@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
 Route::get('/reg_user', function () {
     return view('users');
 });
@@ -29,4 +27,5 @@ Route::get('/contact', function () {
 Route::post('/register_user', [mainController::class, 'registration']);
 Route::post('/login', [mainController::class, 'login']);
 Route::get('/yard',[mainController::class, 'vehicle'] );
+Route::get('/dashboard',[mainController::class, 'dashboard'] );
 Route::post('/reg_vehicle',[mainController::class, 'reg_vehicle'] );
