@@ -48,7 +48,7 @@
 					</div>
 					<hr>
 					<div class="text-center mt-2">
-						<p>Not a member? <a href="#!" style="text-decoration: none;">Register</a></p>
+						<p>Not a member? <a href="contact" style="text-decoration: none;">Register</a></p>
 						<p>Follow us on</p>
 
 						<button type="button" class="btn btn-link btn-floating mx-1">
