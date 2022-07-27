@@ -76,7 +76,7 @@ class mainController extends Controller
         $types=vehicle_type::all();
         $models=vehicle_models::all();
         $brands=vehicle_brand::all();
-        return view('vehicles', ['types'=>$types, 'models'=>$models,'brands'=>$brands, 'message'=>'']);
+        return view('vehicles', ['types'=>$types, 'models'=>$models   ,'brands'=>$brands, 'message'=>'']);
     }
     function reg_vehicle(Request $req){
         $asset=new asset_details;

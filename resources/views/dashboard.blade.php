@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="clients" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
                     <h2>Summary</h2>
                     <?php $vehicles=[6,8,5,7,2];?>
                     <div class="row d-flex justify-content-center">
@@ -171,37 +171,7 @@
                     </div>
 
                 </div>
-                <div id="clients" class="accordion-collapse collapse " aria-labelledby="clients" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
-                    
-                    <div class="accordion-body" >
-                        <div class="row d-flex justify-content-center" >
-                            <table class="table">
-                                <thead>
-                                    <td>#</td>
-                                    <td>First Name</td>
-                                    <td>Middle Name</td>
-                                    <td>Last Name</td>
-                                    <td>Contact</td>
-                                    <td>Action</td>
-                                </thead>
-                                <tbody>
-                                    @foreach($clients as $key=>$client)
-                                    <tr>
-                                        <td>{{$key+1}}</td>
-                                        <td>{{$client->first_name}}</td>
-                                        <td>{{$client->middle_name}} </td>
-                                        <td>{{$client->last_name}} </td>
-                                        <td>{{$client->phone}}</td>
-                                        <td><button class="btn btn-outline-info">More...</button></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div id="clients" class="accordion-collapse collapse " aria-labelledby="clients" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
+                <div id="brands" class="accordion-collapse collapse " aria-labelledby="brands" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
                     
                     <div class="accordion-body" >
                         <div class="row d-flex justify-content-center" >
@@ -226,7 +196,37 @@
                     </div>
                     
                 </div>
-                
+                <div id="clients" class="accordion-collapse collapse" aria-labelledby="clients" data-bs-parent="#accordionFlushExample">
+                    <h2 class="d-flex justify-content-center">Clients</h2>
+                    <div class="row d-flex justify-content-center p-2">
+                        @foreach($clients as $user)
+                            <div class="alert alert-success d-flex justify-content-between mb-2">
+                                <div id="liveToastBtn" type="button">{{$user->first_name}} {{$user->last_name}}</div>
+                                <div>{{$user->role}}</div>
+                                <div style="text-transform:capitalize ;">{{$user->country}}</div>
+                                <a href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-ellipsis"></i></a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href=" ">Onboard</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <img src="{{asset('storage/img/captain.png')}}" class="rounded me-2" width=20>
+                                        <strong class="me-auto">{{$user->first_name}} </strong>
+                                        <small>{{$user->role}}</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body d-flex justify-content-between">
+                                        <div>{{$user->phone}}</div>
+                                        <div>{{$user->email}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+                    </div>
+                </div>
             </main>
         </div>
     </div>
@@ -309,4 +309,14 @@
         </div>
     </div>
 </div>
+<script>
+    var toastTrigger = document.getElementById('liveToastBtn')
+    var toastLiveExample = document.getElementById('liveToast')
+    if (toastTrigger) {
+        toastTrigger.addEventListener('click', function () {
+            var toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+        })
+    }
+</script>
 {{View::make('footer')}}
