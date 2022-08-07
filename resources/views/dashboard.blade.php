@@ -12,7 +12,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" href="#assets" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a class="nav-link" aria-current="page" href=""data-bs-toggle="collapse" data-bs-target="#assets" aria-expanded="true" aria-controls="assets">
                                 <i class="fa-brands fa-buffer"></i>
                                 Assets
                             </a>
@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" aria-current="page" href=""data-bs-toggle="collapse" data-bs-target="#brands" aria-expanded="true" aria-controls="brands">
                                 <i class="fa-brands fa-bitbucket"></i>
                                 Brands
                             </a>
@@ -83,51 +83,53 @@
                         <i class="fa-solid fa-bars" ></i>
                     </div>
                     <h1 class="h2">Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#type"><i class="fa fa-plus"></i> Type</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#model"><i class="fa fa-plus" ></i> Model</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#brand"><i class="fa fa-plus"></i> Brand</button>
-                        </div>
+                    <div class="text-success" type='button' data-bs-toggle="collapse" data-bs-target="#messages" aria-expanded="true" aria-controls="messages">
+                        <i class="fa fa-message fa-2x"></i><span class="badge bg-danger">{{$messages->where('status',0)->count()}}</span>
+                    </div>
+                </div>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#type"><i class="fa fa-plus"></i> Type</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#model"><i class="fa fa-plus" ></i> Model</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#brand"><i class="fa fa-plus"></i> Brand</button>
                     </div>
                 </div>
                 <div id="dashboard" class="accordion-collapse collapse show" aria-labelledby="dashboard" data-bs-parent="#accordionFlushExample" style="text-align:center ;">
                     <h2>Summary</h2>
-                    <?php $vehicles=[6,8,5,7,2];?>
                     <div class="row d-flex justify-content-center">
                         <div class="card col-3 m-1">
                             <h3 class="card-title"><i class="fa-brands fa-buffer"></i> Assets</h3>
-                            <p>15</p>
+                            <p>{{$vehicles->count()}}</p>
                         </div>
                         <div class="col-9 row d-flex justify-content-center">
                             <div class="card col-lg-2 col-sm-4 m-1">
                                 <div class="card-body">
                                     <i class="fa-solid fa-tractor"></i> Tractors 
-                                    <p>{{$vehicles[0]}}</p>
+                                    <p>{{$vehicles->where('type','Tractor')->count()}}</p>
                                 </div>
                             </div>
                             <div class="card col-lg-2 col-sm-4 m-1">
                                 <div class="card-body">
                                     <i class="fa-solid fa-truck"></i> Trucks
-                                    <p>{{$vehicles[1]}}</p>
+                                    <p>{{$vehicles->where('type','Truck')->count()}}</p>
                                 </div>
                             </div>
                             <div class="card col-lg-2 col-sm-4 m-1">
                                 <div class="card-body">
                                     <i class="fa-solid fa-car"></i> SUVs
-                                    <p>{{$vehicles[2]}}</p>
+                                    <p>{{$vehicles->where('type','SUV')->count()}}</p>
                                 </div>
                             </div>
                             <div class="card col-lg-2 col-sm-4 m-1">
                                 <div class="card-body">
                                     <i class="fa-solid fa-bus"></i> Buses
-                                    <p>{{$vehicles[3]}}</p>
+                                    <p>{{$vehicles->where('type','Bus')->count()}}</p>
                                 </div>
                             </div>
                             <div class="card col-lg-2 col-sm-4 m-1">
                                 <div class="card-body">
                                     <i class="fa-solid fa-truck-front"></i> Trailers
-                                    <p>{{$vehicles[4]}}</p>
+                                    <p>{{$vehicles->where('type','Trailer')->count()}}</p>
                                 </div>
                             </div>
                         </div>
@@ -135,35 +137,35 @@
                     </div>
                     <div class="accordion-body" >
                         <div class="row d-flex justify-content-center" >
-                            <div class="col-sm-5 m-1 col-lg-3">
+                            <div class="col-sm-5 p-1 col-lg-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">Users</h3>
-                                        <div class="pie animate" style="--p:20;--c:darkblue;--b:10px"> 20</div>
+                                        <div class="pie animate" style="--p:100;--c:darkblue;--b:10px"> {{$clients->count()}}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-5 m-1 col-lg-3">
+                            <div class="col-sm-5 p-1 col-lg-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">Cars</h3>
-                                        <div class="pie animate" style="--p:100;--c:orange;">50</div>
+                                        <div class="pie animate" style="--p:100;--c:orange; --b:10px">{{$vehicles->count()}}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-5 m-1 col-lg-3">
+                            <div class="col-sm-5 p-1 col-lg-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">Purchases</h3> 
-                                        <div class="pie animate" style="--p:100;--c:purple;--b:15px">86</div>
+                                        <div class="pie animate" style="--p:100;--c:purple;--b:10px">86</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-5 m-1 col-lg-3">
+                            <div class="col-sm-5 p-1 col-lg-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">Hires</h3>
-                                        <div class="pie animate" style="--p:80;--c:lightgreen">80 </div>
+                                        <div class="pie animate" style="--p:80;--c:lightgreen; --b:10px;">80 </div>
                                     </div>
                                 </div>
                             </div>
@@ -176,18 +178,24 @@
                     <div class="accordion-body" >
                         <div class="row d-flex justify-content-center" >
                             <table class="table">
-                                <thead>
-                                    <td>#</td>
-                                    <td>Brand</td>
-                                    <td>Total</td>
+                                <thead style='text-align:center;'>
+                                    <th>#</th>
+                                    <th>Model</th>
+                                    <th colspan="2">Brand</th>
                                 </thead>
                                 <tbody>
-                                    @foreach($brands as $key=>$brand)
+                                    @foreach($models as $key=>$model)
                                     <tr>
-                                        <td>{{$key+1}}</td>
-                                        <td>{{$brand->brand_name}}</td>
-                                        <td></td>
-                                        <td><button class="btn btn-outline-info">More...</button></td>
+                                        <td>{{$key+1}}.</td>
+                                        <td style="font-family:Verdana, Geneva, Tahoma, sans-serif">{{$model->model_name}}</td>
+                                        <td colspan="2">
+                                            @foreach($brands->where('model_id', $model->id) as $index=>$brand)
+                                            <div class="d-flex justify-content-between">
+                                                <div>{{$brand->brand_name}}</div>
+                                                <div>{{$vehicles->where('brand_name',$brand->brand_name)->count()}}</div>
+                                            </div>
+                                            @endforeach
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -199,8 +207,9 @@
                 <div id="clients" class="accordion-collapse collapse" aria-labelledby="clients" data-bs-parent="#accordionFlushExample">
                     <h2 class="d-flex justify-content-center">Clients</h2>
                     <div class="row d-flex justify-content-center p-2">
-                        @foreach($clients as $user)
+                        @foreach($clients as $id=> $user)
                             <div class="alert alert-success d-flex justify-content-between mb-2">
+                                <div>{{$id+1}}. </div>
                                 <div id="liveToastBtn" type="button">{{$user->first_name}} {{$user->last_name}}</div>
                                 <div>{{$user->role}}</div>
                                 <div style="text-transform:capitalize ;">{{$user->country}}</div>
@@ -224,6 +233,79 @@
                                 </div>
                             </div>
 
+                        @endforeach
+                    </div>
+                </div>
+                <div id="assets" class="accordion-collapse collapse" aria-labelledby="assets" data-bs-parent="#accordionFlushExample">
+                    <h2 class="d-flex justify-content-center">Clients</h2>
+                    <div class="row d-flex justify-content-center p-2">
+                        @foreach($vehicles as $ind=> $vehicle)
+                            <div class="alert alert-success d-flex justify-content-between mb-2">
+                                <div>{{$ind+1}}. </div>
+                                <div type="button">{{$vehicle->license}}</div>
+                                <div>{{$vehicle->type}}</div>
+                                <div>{{$vehicle->color}}</div>
+                                <div>{{$vehicle->brand_name}}</div>
+                                <a href="" type="button"data-bs-toggle="modal" data-bs-target="#detail{{$vehicle->id}}" ><i class="fa-solid fa-ellipsis"></i></a>
+                                <div class="modal fade" id="detail{{$vehicle->id}}" tabindex="-1" aria-labelledby="detail{{$vehicle->id}}" aria-hidden="true">
+                                    <div class="modal-dialog text-dark">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="detail{{$vehicle->id}}">{{$vehicle->license}}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                                <div class="modal-body">
+                                                    <div>Type : {{$vehicle->license}}</div>
+                                                    <div>Model: {{$vehicle->license}}</div>
+                                                    <div>Brand: {{$vehicle->brand_name}}</div>
+                                                    <div>Color: {{$vehicle->color}}</div>
+                                                    <div>Chassis: {{$vehicle->chassis_number}}</div>
+                                                    <div>Engine : {{$vehicle->engine_number}}</div>
+                                                    <div>Owner : {{$vehicle->license}}</div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div id="messages" class="accordion-collapse collapse" aria-labelledby="messages" data-bs-parent="#accordionFlushExample">
+                    <h2 class="d-flex justify-content-center">Messages</h2>
+                    <div class="row">
+                        @foreach($messages as $message)
+                        <div class="col-md-4 p-2">
+                            <div class="card p-2" style="height:250px ;">
+                                @if($message->status==0)
+                                    <div class="bg-primary p-1"></div>
+                                @else
+                                    <div class="bg-secondary p-1"></div>
+                                @endif
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <div><strong><i>{{$message->name}}</i></strong></div>
+                                        <small>{{$message->phone}}</small>
+                                        <a href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-ellipsis"></i></a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @if($message->status==0)
+                                            <li><a class="dropdown-item" href="/read/{{$message->id}}" style="text-decoration:none ;">Mark as read</a></li>
+                                            @else
+                                            <li><a class="dropdown-item" href="/unread/{{$message->id}}" style="text-decoration:none ;">Mark as unread</a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                    <h6 class="card-title" style="font-family:cursive;">Subject: {{$message->subject}}</h6>
+                                    <p class="card-text" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{$message->message}}</p>
+                                    <div class="d-flex justify-content-end">
+                                        <small>{{date_format($message->created_at,'F j, Y')}}</small>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -309,14 +391,4 @@
         </div>
     </div>
 </div>
-<script>
-    var toastTrigger = document.getElementById('liveToastBtn')
-    var toastLiveExample = document.getElementById('liveToast')
-    if (toastTrigger) {
-        toastTrigger.addEventListener('click', function () {
-            var toast = new bootstrap.Toast(toastLiveExample)
-            toast.show()
-        })
-    }
-</script>
 {{View::make('footer')}}

@@ -1,5 +1,8 @@
 <?php
+
+use App\Http\Controllers\dataController;
 use App\Http\Controllers\mainController;
+use App\Http\Controllers\viewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,11 +32,20 @@ Route::get('/contact', function () {
 Route::get('/landing', function () {
     return view('landing');
 });
+
+//user control
 Route::post('/register_user', [mainController::class, 'registration']);
 Route::post('/login', [mainController::class, 'login']);
-Route::get('/yard',[mainController::class, 'vehicle'] );
-Route::get('/dashboard',[mainController::class, 'dashboard'] );
-Route::post('/reg_vehicle',[mainController::class, 'reg_vehicle'] );
-Route::post('/addBrand',[mainController::class, 'brand'] );
-Route::post('/addType',[mainController::class, 'type'] );
-Route::post('/addModel',[mainController::class, 'model'] );
+
+//Read data control
+Route::get('/yard',[viewsController::class, 'vehicle'] );
+Route::get('/dashboard',[viewsController::class, 'dashboard'] )->middleware('sessionCheck');
+
+//create, delete and update data control
+Route::post('/reg_vehicle',[dataController::class, 'reg_vehicle'] );
+Route::post('/addBrand',[dataController::class, 'brand'] );
+Route::post('/addType',[dataController::class, 'type'] );
+Route::post('/addModel',[dataController::class, 'model'] );
+Route::post('/contact',[dataController::class, 'message'] );
+Route::get('/read/{id}',[dataController::class, 'read']);
+Route::get('/unread/{id}',[dataController::class, 'unread']);

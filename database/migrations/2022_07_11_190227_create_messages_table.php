@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('subject');
             $table->string('message');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

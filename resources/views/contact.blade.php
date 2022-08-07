@@ -1,7 +1,8 @@
 {{View::make('header',['title'=>'Contact-us'])}}
-<form class="container" action="" method="post">
-    <div class="bg-success m-5 shadow row">
-        <div class="col-5 p-3" style="font-family: calibri; min-height:500px;">
+<form class="container mt-2" action="/contact" method="post">
+    @csrf
+    <div class="bg-success shadow row">
+        <div class="col-md-5 p-3" style="font-family: calibri; min-height:500px;">
             <h3 class="text-light">Get in touch</h3>
             <p class="text-light">Enjoy our convinient 24/7 customer support</p>
             <div class="container row d-flex justify-content-center">
@@ -37,19 +38,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-7 bg-light p-3" style="font-family: calibri">
+        <div class="col-md-7 bg-light p-3" style="font-family: calibri">
             <h3 class="text-dark">Let's get in touch</h3>
             <div class="input-group mb-3">
                 <span class="input-group-text">FULL NAME</span>
-                <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">EMAIL</span>
+                <span class="input-group-text">EMAIL ADDRESS</span>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">PHONE NUMBER</span>
-                <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Phone Number" required>
+                <input type="text" id="phone_number" name="contact" class="form-control" placeholder="Phone Number" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">SUBJECT</span>
@@ -65,4 +66,7 @@
         </div>
     </div>
 </form>
+<script src="">
+
+</script>
 {{View::make('footer')}}
