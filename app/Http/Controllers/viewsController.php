@@ -32,4 +32,5 @@ class viewsController extends Controller
         return view('dashboard', ['clients'=>$users,'models'=>$models,'vehicles'=>$vehicles,
         'brands'=>$brands,'messages'=>$messages]);
     }
+    
 }
