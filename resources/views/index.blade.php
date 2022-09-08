@@ -5,13 +5,52 @@
 		@else
 		<div class ="col-lg-8 card">
 		@endif
-				<img src="{{asset('storage/img/captain.png')}}" class="mt-4" >
-				<h2 class ="position-absolute start-50  translate-middle badge bg-light text-dark"  style="font-size:1.4rem;">
+				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{asset('storage/img/captain.png')}}" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>A JEYTCH INNOVATION</h5>
+                        <p>slution oriented approach towars innovation.</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{asset('storage/img/teltonika-fm920.jpg')}}" class="d-block w-100" alt="...">
+                
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>VIMS SYSTEM</h5>
+                        <p>Worry less about your yard and sales, we have you covered.</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                        
+                      <img src="{{asset('storage/img/farm.jpg')}}" class="d-block w-100" alt="...">
+                      
+                      <div class="carousel-caption d-flex d-md-block">
+                        <h5>A HUB FOR INNOVATION</h5>
+                        <p>We seek to nurture young talent since we're laser focused and solution oriented.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+				<h2 class ="position-absolute start-50  translate-middle badge bg-white text-dark"  style="font-size:105%;">
 					Vehicle Information Management System
 				</h2>
 		</div>
-		@if(session()->has('user'))
-		@else
+		@if(!session()->has('user'))
 		<div class = "col-lg-4 card">
 				<div class="d-flex justify-content-center m-3">
 					<i class="fa-solid fa-user fa-fw fa-8x"></i>

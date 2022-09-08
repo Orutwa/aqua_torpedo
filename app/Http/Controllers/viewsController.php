@@ -18,7 +18,8 @@ class viewsController extends Controller
         $types=vehicle_type::all();
         $models=vehicle_models::all();
         $brands=vehicle_brand::all();
-        return view('vehicles', ['types'=>$types, 'models'=>$models   ,'brands'=>$brands, 'message'=>'']);
+        $users= User::all();
+        return view('vehicles', ['types'=>$types, 'models'=>$models,'users'=>$users,'brands'=>$brands, 'message'=>'']);
     }
     function dashboard(){
         $users= User::all();
@@ -32,5 +33,4 @@ class viewsController extends Controller
         return view('dashboard', ['clients'=>$users,'models'=>$models,'vehicles'=>$vehicles,
         'brands'=>$brands,'messages'=>$messages]);
     }
-    
 }

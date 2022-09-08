@@ -10,21 +10,23 @@
 
         <div class='form-floating mb-2'>
           <select class="form-control mb-3 has-validation" name="type_id" required>
-          <option value="" class="text-secondary" selected disabled>Select Vehicle Type</option>
+          <option value="" class="text-secondary" selected disabled> </option>
           @foreach($types as $type)
           <option value="{{$type->id}}">{{$type->name}}</option>
           @endforeach
           </select>
+          <label for="owner">Vehicle Type</label>
           <div class="invalid-feedback">This field is required.</div>
         </div>
 
         <div class='form-floating mb-2'>
           <select class="form-control mb-3 has-validation" name="brand_id"  required>
-          <option value="" selected disabled>Select Vehicle Brand</option>
+          <option value="" selected disabled> </option>
           @foreach($brands as $brand)
           <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
           @endforeach
           </select>
+          <label for="owner">Vehicle Brand</label>
           <div class="invalid-feedback">This field is required.</div>
         </div>
         
@@ -49,8 +51,27 @@
           <div class="invalid-feedback">This field is required.</div>
         </div>
         <div class='form-floating mb-2'>
+          <select class="form-control mb-3 has-validation" name="condition"  required>
+          <option value="" selected disabled></option>
+            <option value="New">New</option>
+            <option value="Used">Used</option>
+          </select>
+          <label for="owner">Vehicle Condition</label>
+          <div class="invalid-feedback">This field is required.</div>
+        </div>
+        <div class='form-floating mb-2'>
           <input type="number" class="form-control mb-3 has-validation" name="mileage" placeholder="" required/>
           <label for="m-name">Mileage</label>
+          <div class="invalid-feedback">This field is required.</div>
+        </div>
+        <div class='form-floating mb-2'>
+          <select class="form-control mb-3 has-validation" name="user_id"  required>
+          <option value="" selected disabled></option>
+          @foreach($users as $user)
+            <option value="{{$user->id}}">{{$user->first_name}} {{$user->last_name}}</option>
+          @endforeach
+          </select>
+          <label for="owner">Vehicle Owner</label>
           <div class="invalid-feedback">This field is required.</div>
         </div>
         <div class="modal-footer">

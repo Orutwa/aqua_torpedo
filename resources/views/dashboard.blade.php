@@ -216,21 +216,12 @@
                                 <a href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-ellipsis"></i></a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href=" ">Onboard</a></li>
+                                    <li><a class="dropdown-item" href=" ">Details</a></li>
+                                    <li><a class="dropdown-item" href=" ">Delete</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                                    <div class="toast-header">
-                                        <img src="{{asset('storage/img/captain.png')}}" class="rounded me-2" width=20>
-                                        <strong class="me-auto">{{$user->first_name}} </strong>
-                                        <small>{{$user->role}}</small>
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                    </div>
-                                    <div class="toast-body d-flex justify-content-between">
-                                        <div>{{$user->phone}}</div>
-                                        <div>{{$user->email}}</div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
                         @endforeach
@@ -255,13 +246,32 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                                 <div class="modal-body">
-                                                    <div>Type : {{$vehicle->license}}</div>
-                                                    <div>Model: {{$vehicle->license}}</div>
+                                                    <div>Type : {{$vehicle->type}}
+                                                    </div>
+                                                    <div>Model: 
+                                                        @foreach($models as $model)
+                                                            @if(($model->id)==($vehicle->model_id))
+                                                            {{$model->model_name}}
+                                                            @endif
+                                                        @endforeach</div>
                                                     <div>Brand: {{$vehicle->brand_name}}</div>
                                                     <div>Color: {{$vehicle->color}}</div>
                                                     <div>Chassis: {{$vehicle->chassis_number}}</div>
                                                     <div>Engine : {{$vehicle->engine_number}}</div>
-                                                    <div>Owner : {{$vehicle->license}}</div>
+                                                    <div>Owner : 
+                                                        @foreach($clients as $user)
+                                                            @if(($user->id)==($vehicle->associated_user))
+                                                            {{$user->first_name}} {{$user->middle_name}} {{$user->last_name}}
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                    <div>From: {{$vehicle->created_at}}</div>
+                                                    <?php
+                                                    $now = time(); // or your date as well
+                                                    $your_date = strtotime(date_format(($vehicle->created_at),'Y-m-d'));
+                                                    $datediff = $now - $your_date;
+                                                    $duration=ceil($datediff / (60 * 60 * 24));?>
+                                                    <div>Stay Duration: {{$duration}}</div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

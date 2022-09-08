@@ -35,7 +35,6 @@ class mainController extends Controller
         $user->company=$req->company;
         $user->role='User';
         $user->save();
-        $req->session()->put('user',$user);
         return redirect('/');
     }
     function login(Request $req){

@@ -28,9 +28,11 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
+                    @if(session()->has('user'))
                     <li class="nav-item">
                         <a class="nav-link" href="/yard">Register Vehicle</a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="/contact" >Contact</a>
                     </li>

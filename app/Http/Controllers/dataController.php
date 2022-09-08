@@ -23,9 +23,9 @@ class dataController extends Controller
         $asset->color=$req->color;
         $asset->condition=$req->condition;
         $asset->mileage=$req->mileage;
-        $asset->associated_user=Session::get('user')['id'];
+        $asset->associated_user=$req->user_id;
         $asset->status='Hold';
-        $asset->condition='New';
+        $asset->condition=$req->condition;
         $asset->save();
         return redirect('/yard');
     }
